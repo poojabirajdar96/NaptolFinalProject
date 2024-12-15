@@ -14,10 +14,10 @@ import utility.Parameterization;
 
 public class SortFilter extends CommonMethods{
 	
-	@FindBy(xpath = "//select[@id='sortByFilter']") private WebElement SortFilterSelectBox;
-	@FindBy(xpath = "//select[@id='sortByFilter']//option")private List<WebElement> SortOptionList;
-	@FindBy(xpath = "//span[@class='offer-price']")private List<WebElement> ProductPriceList;
-	@FindBy(xpath = "//div[@class='item_title']") private List <WebElement> ProductsNameList;
+	@FindBy(xpath = "//select[@id='sortByFilter']") private WebElement sortFilterSelectBox;
+	@FindBy(xpath = "//select[@id='sortByFilter']//option")private List<WebElement> sortOptionList;
+	@FindBy(xpath = "//span[@class='offer-price']")private List<WebElement> productPriceList;
+	@FindBy(xpath = "//div[@class='item_title']") private List <WebElement> productsNameList;
 	
 	public SortFilter(WebDriver driver)
 	{
@@ -25,19 +25,19 @@ public class SortFilter extends CommonMethods{
 	}
 	
 	public void clickOnSortFilter() {
-		SortFilterSelectBox.click();
+		sortFilterSelectBox.click();
 	}
 	
 	public void getSelectedOptionFromList(int row) throws EncryptedDocumentException, IOException {
-		Select option = new Select(SortFilterSelectBox);
-		option.selectByVisibleText(Parameterization.getStringDataFromSheet("SortOptionList", row, 0));
+		Select option = new Select(sortFilterSelectBox);
+		option.selectByVisibleText(Parameterization.getTestDataFromSheet("SortOptionList", row, 0));
 	}
 	
 	public double[] getProductsPriceList() {
-		double[] priceList = new double[ProductPriceList.size()];
+		double[] priceList = new double[productPriceList.size()];
 			
-		for(int i=0;i<ProductPriceList.size();i++) {
-			String[] price= ProductPriceList.get(i).getText().split(" ");
+		for(int i=0;i<productPriceList.size();i++) {
+			String[] price= productPriceList.get(i).getText().split(" ");
 			priceList[i] = Double.parseDouble(removeCommaFromString(price[0]));
 		}
 		
@@ -45,10 +45,10 @@ public class SortFilter extends CommonMethods{
 	}
 	
 	public String[] getProductsNameList() {
-		String[] nameList = new String[ProductsNameList.size()];
+		String[] nameList = new String[productsNameList.size()];
 		
-		for(int i=0;i<ProductsNameList.size();i++) {
-			nameList[i] =ProductsNameList.get(i).getText();
+		for(int i=0;i<productsNameList.size();i++) {
+			nameList[i] =productsNameList.get(i).getText();
 		}
 		
 		return nameList;	

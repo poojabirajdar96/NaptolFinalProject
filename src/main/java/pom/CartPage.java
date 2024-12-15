@@ -13,18 +13,18 @@ import org.openqa.selenium.support.PageFactory;
 
 public class CartPage extends CommonMethods {
 
-	@FindBy(xpath = "//ul[@id='cartData']//h2")private WebElement ProductName;
-	@FindBy(xpath = "//span[@class='font-bold-imp']")private WebElement ProductCount;
-	@FindBy(xpath = "(//ul[@id='cartData'])//li//div//h2//a")private List<WebElement> CartProductsList;
+	@FindBy(xpath = "//ul[@id='cartData']//h2")private WebElement productName;
+	@FindBy(xpath = "//span[@class='font-bold-imp']")private WebElement productCount;
+	@FindBy(xpath = "(//ul[@id='cartData'])//li//div//h2//a")private List<WebElement> cartProductsList;
 	@FindBy(xpath = "//p[@class='chintu']//a")private List<WebElement> removeProductBtn;
-	@FindBy(xpath = "//li[@class='head_qty']//input")private List<WebElement> ProductQuantity;
-	@FindBy(xpath = "//ul[@id='cartData']//li[@class='head_UPrice']")private List<WebElement> ProductUnitPrice;
-	@FindBy(xpath = "//ul[@id='cartData']//li[@class='head_ship']")private List<WebElement> ProductShippingCharge;
-	@FindBy(xpath = "//ul[@id='cartData']//li[@class='head_Amount']")private List<WebElement> ProductTotalPrice;
-	@FindBy(xpath = "//span[@id='cvDiscount']")private WebElement GiftVoucherDiscount;
+	@FindBy(xpath = "//li[@class='head_qty']//input")private List<WebElement> productQuantity;
+	@FindBy(xpath = "//ul[@id='cartData']//li[@class='head_UPrice']")private List<WebElement> productUnitPrice;
+	@FindBy(xpath = "//ul[@id='cartData']//li[@class='head_ship']")private List<WebElement> productShippingCharge;
+	@FindBy(xpath = "//ul[@id='cartData']//li[@class='head_Amount']")private List<WebElement> productTotalPrice;
+	@FindBy(xpath = "//span[@id='cvDiscount']")private WebElement giftVoucherDiscount;
 	@FindBy(xpath = "//span[@id='totalPayableAmount']")private WebElement totalPayableCartAmount;
 
-	@FindBy(xpath = "//div[@id='ShoppingCartBox']//button")private WebElement CloseBtn;
+	@FindBy(xpath = "//div[@id='ShoppingCartBox']//button")private WebElement closeBtn;
 	
 	WebDriver driver;
 	
@@ -36,26 +36,26 @@ public class CartPage extends CommonMethods {
 	
 	public String getCartProductname()
 	{
-		return ProductName.getText();
+		return productName.getText();
 	}
 	
 	
 	public int getCartProductCount() 
 	{
-		String[] count = ProductCount.getText().split(" ");
+		String[] count = productCount.getText().split(" ");
 		return Integer.parseInt(removeBracesFromString(count[0]));
 	}
 	
 	public int getCartProductList()
 	{	
-		return CartProductsList.size();
+		return cartProductsList.size();
 	}
 	
 	public String[] getCartProductNamesList()
 	{
-		String[] productName=new String[CartProductsList.size()];
-		for(int i=0;i<CartProductsList.size();i++) {
-			productName[i] = CartProductsList.get(i).getText();
+		String[] productName=new String[cartProductsList.size()];
+		for(int i=0;i<cartProductsList.size();i++) {
+			productName[i] = cartProductsList.get(i).getText();
 		}
 		return productName;
 	}
@@ -63,18 +63,18 @@ public class CartPage extends CommonMethods {
 	public String clickOnRemoveBtn(int index)	
 	{			
 		 //CartProductsList=driver.findElements(By.xpath("(//ul[@id='cartData'])//li//div//h2//a"));
-		 String removedProductName = CartProductsList.get(index).getText();
+		 String removedProductName = cartProductsList.get(index).getText();
 		 removeProductBtn.get(index).click();	
 		 return removedProductName;
 	}
 	
 	public void clickOnCloseBtn() {
-		CloseBtn.click();
+		closeBtn.click();
 	}
 	
 	public void enterQuantity(int index) throws InterruptedException {
 		Thread.sleep(3000);
-		ProductQuantity.get(index).sendKeys("2");
+		productQuantity.get(index).sendKeys("2");
 		Actions act = new Actions(driver);
 		act.sendKeys(Keys.ARROW_RIGHT);
 		act.sendKeys(Keys.BACK_SPACE);
@@ -83,14 +83,14 @@ public class CartPage extends CommonMethods {
 	 }
 	
 	public int getProductQuantity(int index) {
-		return Integer.parseInt(ProductQuantity.get(index).getAttribute("value"));
+		return Integer.parseInt(productQuantity.get(index).getAttribute("value"));
 	}
 	
 	
 	public double getProductUnitPrice(int index) {
 		
-		String unitPriceText=ProductUnitPrice.get(index).getText();
-		String unitPriceSpan=ProductUnitPrice.get(index).findElement(By.xpath(".//span")).getText();
+		String unitPriceText=productUnitPrice.get(index).getText();
+		String unitPriceSpan=productUnitPrice.get(index).findElement(By.xpath(".//span")).getText();
 		unitPriceText=unitPriceText.replace(unitPriceSpan, "");
 		
 		String [] unitPrice =  unitPriceText.split(" ");
@@ -99,8 +99,8 @@ public class CartPage extends CommonMethods {
 	
 	public double getProductShippingCharge(int index) {
 
-		String shippingPriceText=ProductShippingCharge.get(index).getText();
-		String shippingPriceSpan=ProductShippingCharge.get(index).findElement(By.xpath(".//span")).getText();
+		String shippingPriceText=productShippingCharge.get(index).getText();
+		String shippingPriceSpan=productShippingCharge.get(index).findElement(By.xpath(".//span")).getText();
 		shippingPriceText=shippingPriceText.replace(shippingPriceSpan, "");
 		
 		String [] shippingPrice =  shippingPriceText.split(" ");
@@ -109,16 +109,16 @@ public class CartPage extends CommonMethods {
 	
 	public double getProductTotalAmount(int index) {
 
-		String totalAmountText=ProductTotalPrice.get(index).getText();
+		String totalAmountText=productTotalPrice.get(index).getText();
 		String [] productTotalAmount= totalAmountText.split(" ");
 		return Double.parseDouble(removeCommaFromString(productTotalAmount[0]));
 	}
 	
 	public double[] getAllProductTotalPriceList() {
-		double[] allProductTotalAmount = new double[ProductTotalPrice.size()];
+		double[] allProductTotalAmount = new double[productTotalPrice.size()];
 
-		for(int i=0;i<ProductTotalPrice.size();i++) {
-			String totalAmountText=ProductTotalPrice.get(i).getText();
+		for(int i=0;i<productTotalPrice.size();i++) {
+			String totalAmountText=productTotalPrice.get(i).getText();
 			String [] productTotalAmount= totalAmountText.split(" ");
 			allProductTotalAmount[i] = Double.parseDouble(removeCommaFromString(productTotalAmount[0]));
 		}
@@ -126,7 +126,7 @@ public class CartPage extends CommonMethods {
 	}
 	
 	public double getGiftVoucherDiscount() {
-		String giftVoucherDiscountText=GiftVoucherDiscount.getText();
+		String giftVoucherDiscountText=giftVoucherDiscount.getText();
 		String [] giftVoucherDiscount= giftVoucherDiscountText.split(" ");
 		return Double.parseDouble(removeCommaFromString(giftVoucherDiscount[0]));
 	}

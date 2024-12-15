@@ -20,7 +20,7 @@ public class QuickViewPopupTest extends BaseTest {
 	@BeforeMethod
 	public void launchNaptol()
 	{
-		driver = Browser.openBrowser();				
+		driver = Browser.openBrowser("Chrome");				
 	}
 	
 	@Test(priority = 1)
@@ -31,19 +31,19 @@ public class QuickViewPopupTest extends BaseTest {
 		HomePage homePage = new HomePage(driver);
 		homePage.enterValidProductName();
 		homePage.clickOnSearchButton();
-		homePage.moveToProduct(driver,2);	
+		homePage.moveToProduct(driver,1);	
 		
-		boolean verifyQuickViewPopupDisplayedOrNot = homePage.clickOnQuickView(2);	
+		boolean verifyQuickViewPopupDisplayedOrNot = homePage.clickOnQuickView(1);	
 		
 		Assert.assertTrue(verifyQuickViewPopupDisplayedOrNot);
 		
-		String homePageProductName =  homePage.getProductName(2);
-		Double homePageProductPrice = homePage.getProductPrice(2);
+		String homePageProductName =  homePage.getProductName(1);
+		Double homePageProductPrice = homePage.getProductPrice(1);
 		
 		QuickViewPopup quickViewPopup = new QuickViewPopup(driver);
 		
 		String quickViewProductName = quickViewPopup.getProductName();	
-		Double quickViewProductPrice = quickViewPopup.getProductPrice(2);
+		Double quickViewProductPrice = quickViewPopup.getProductPrice(1);
 		
 		Assert.assertEquals(homePageProductName,quickViewProductName);		
 		

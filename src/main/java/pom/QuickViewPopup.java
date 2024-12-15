@@ -9,14 +9,14 @@ import org.openqa.selenium.support.PageFactory;
 
 public class QuickViewPopup extends CommonMethods {
 	
-	@FindBy(xpath = "//div[@id='square_Details']//h1") private WebElement ProductName;
-	@FindBy(xpath = "//span[@class='offer-price']") private List<WebElement> ProductsPriceList;
+	@FindBy(xpath = "//div[@id='square_Details']//h1") private WebElement productName;
+	@FindBy(xpath = "//span[@class='offer-price']") private List<WebElement> productsPriceList;
 	
-	@FindBy(xpath = "//ul[@class='sizeBox clearfix']//li") private List<WebElement> ProductColorList;
+	@FindBy(xpath = "//ul[@class='sizeBox clearfix']//li") private List<WebElement> productColorList;
 	
-	@FindBy(xpath = "//a[@id='cart-panel-button-0']") private WebElement ClickHereToBuyButton;
+	@FindBy(xpath = "//a[@id='cart-panel-button-0']") private WebElement buyButton;
 	
-	@FindBy(xpath = "//div[@id='QuickView']//button")private WebElement CloseBtn;
+	@FindBy(xpath = "//div[@id='QuickView']//button")private WebElement closeBtn;
 	
 	public QuickViewPopup(WebDriver driver)
 	{
@@ -25,32 +25,32 @@ public class QuickViewPopup extends CommonMethods {
 	
 	public String getProductName()
 	{
-		return ProductName.getText();
+		return productName.getText();
 	}
 		
 	public double getProductPrice(int index)
 	{
-		String [] a = ProductsPriceList.get(index).getText().split(" ");
+		String [] a = productsPriceList.get(index).getText().split(" ");
 		return Double.parseDouble(removeCommaFromString(a[0]));	
 	}
 	
 	public void selectProductColor(int index)
 	{				
-		ProductColorList.get(index).click();	
+		productColorList.get(index).click();	
 	}
 	
 	public int getProductColorList()
 	{
-		return ProductColorList.size();
+		return productColorList.size();
 	}
 	
 	public void clickOnClickHereToBuyButton()
 	{
-		ClickHereToBuyButton.click();	
+	    buyButton.click();	
 	}
 	
 	public void clickOnCloseBtn() {
-		CloseBtn.click();
+		closeBtn.click();
 	}
 	
 }

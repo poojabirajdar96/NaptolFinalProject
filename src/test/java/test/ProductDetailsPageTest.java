@@ -20,7 +20,7 @@ public class ProductDetailsPageTest extends BaseTest{
 	@BeforeMethod
 	public void launchNaptol()
 	{
-		driver = Browser.openBrowser();				
+		driver = Browser.openBrowser("Chrome");				
 	}
 	
 	@Test(priority = 1)
@@ -32,8 +32,8 @@ public class ProductDetailsPageTest extends BaseTest{
 		homePage.enterValidProductName();
 		homePage.clickOnSearchButton();
 		
-		String homePageProductName =  homePage.getProductName(2);
-		Double homePageProductPrice = homePage.getProductPrice(2);
+		String homePageProductName =  homePage.getProductName(1);
+		Double homePageProductPrice = homePage.getProductPrice(1);
 		
 		homePage.clickOnProductDiv(driver);
 		

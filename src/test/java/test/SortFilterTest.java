@@ -19,7 +19,7 @@ public class SortFilterTest extends BaseTest {
 	@BeforeMethod
 	public void launchNaptol()
 	{
-		driver = Browser.openBrowser();				
+		driver = Browser.openBrowser("Chrome");				
 	}
 	
 	@Test

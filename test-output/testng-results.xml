@@ -1,61 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="4" passed="4" failed="0" skipped="0">
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-12-12T21:38:36 IST" name="Default suite" finished-at="2024-12-12T21:40:34 IST" duration-ms="118574">
+  <suite started-at="2024-12-15T20:55:31 IST" name="Default suite" finished-at="2024-12-15T20:55:59 IST" duration-ms="28093">
     <groups>
     </groups>
-    <test started-at="2024-12-12T21:38:36 IST" name="Default test" finished-at="2024-12-12T21:40:34 IST" duration-ms="118574">
-      <class name="test.CartPageTest">
-        <test-method is-config="true" signature="launchNaptol()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:38:36 IST" name="launchNaptol" finished-at="2024-12-12T21:38:40 IST" duration-ms="4290" status="PASS">
+    <test started-at="2024-12-15T20:55:31 IST" name="Default test" finished-at="2024-12-15T20:55:59 IST" duration-ms="28093">
+      <class name="test.SortFilterTest">
+        <test-method is-config="true" signature="launchNaptol()[pri:0, instance:test.SortFilterTest@6aba2b86]" started-at="2024-12-15T20:55:31 IST" name="launchNaptol" finished-at="2024-12-15T20:55:36 IST" duration-ms="4142" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- launchNaptol -->
-        <test-method signature="verifyByAddingMultipleProductsToCart()[pri:1, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:38:40 IST" name="verifyByAddingMultipleProductsToCart" finished-at="2024-12-12T21:39:05 IST" duration-ms="24098" status="PASS">
+        <test-method signature="verifySortFeature()[pri:0, instance:test.SortFilterTest@6aba2b86]" started-at="2024-12-15T20:55:36 IST" name="verifySortFeature" finished-at="2024-12-15T20:55:59 IST" duration-ms="23198" status="PASS">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- verifyByAddingMultipleProductsToCart -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:39:05 IST" name="closeBrowser" finished-at="2024-12-12T21:39:05 IST" duration-ms="497" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="launchNaptol()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:39:05 IST" name="launchNaptol" finished-at="2024-12-12T21:39:08 IST" duration-ms="3265" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchNaptol -->
-        <test-method signature="verifyOnChangingProductQuantityCorrectAmountIsDisplyed()[pri:2, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:39:08 IST" name="verifyOnChangingProductQuantityCorrectAmountIsDisplyed" finished-at="2024-12-12T21:39:26 IST" duration-ms="17456" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyOnChangingProductQuantityCorrectAmountIsDisplyed -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:39:26 IST" name="closeBrowser" finished-at="2024-12-12T21:39:26 IST" duration-ms="355" status="PASS">
+        </test-method> <!-- verifySortFeature -->
+        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.SortFilterTest@6aba2b86]" started-at="2024-12-15T20:55:59 IST" name="closeBrowser" finished-at="2024-12-15T20:55:59 IST" duration-ms="325" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="launchNaptol()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:39:26 IST" name="launchNaptol" finished-at="2024-12-12T21:39:29 IST" duration-ms="3148" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchNaptol -->
-        <test-method signature="verifyByRemovingProductFromCart()[pri:3, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:39:29 IST" name="verifyByRemovingProductFromCart" finished-at="2024-12-12T21:40:05 IST" duration-ms="36060" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyByRemovingProductFromCart -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:40:05 IST" name="closeBrowser" finished-at="2024-12-12T21:40:06 IST" duration-ms="291" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-        <test-method is-config="true" signature="launchNaptol()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:40:06 IST" name="launchNaptol" finished-at="2024-12-12T21:40:09 IST" duration-ms="3187" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- launchNaptol -->
-        <test-method signature="verifyTotalAmountForMultipleProductsInCart()[pri:4, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:40:09 IST" name="verifyTotalAmountForMultipleProductsInCart" finished-at="2024-12-12T21:40:34 IST" duration-ms="25117" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- verifyTotalAmountForMultipleProductsInCart -->
-        <test-method is-config="true" signature="closeBrowser()[pri:0, instance:test.CartPageTest@47af7f3d]" started-at="2024-12-12T21:40:34 IST" name="closeBrowser" finished-at="2024-12-12T21:40:34 IST" duration-ms="390" status="PASS">
-          <reporter-output>
-          </reporter-output>
-        </test-method> <!-- closeBrowser -->
-      </class> <!-- test.CartPageTest -->
+      </class> <!-- test.SortFilterTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

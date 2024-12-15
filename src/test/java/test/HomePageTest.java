@@ -18,7 +18,7 @@ public class HomePageTest extends BaseTest{
 	@BeforeMethod
 	public void launchNaptol()
 	{
-		driver = Browser.openBrowser();				
+		driver = Browser.openBrowser("Chrome");				
 	}
 	
 	@Test(priority = 1)

@@ -14,21 +14,21 @@ import utility.Parameterization;
 
 public class HomePage extends CommonMethods {
 
-	@FindBy(xpath = "//input[@id='header_search_text']") private WebElement SearchInputBox;
-	@FindBy(xpath = "(//a[@href='javascript:autoSuggestion.headerSearch()'])[2]")private WebElement SearchButton;
-	@FindBy(xpath = "//span[@id='resultCountSpan']") private WebElement SearchResultCount;
+	@FindBy(xpath = "//input[@id='header_search_text']") private WebElement searchInputBox;
+	@FindBy(xpath = "(//a[@href='javascript:autoSuggestion.headerSearch()'])[2]")private WebElement searchButton;
+	@FindBy(xpath = "//span[@id='resultCountSpan']") private WebElement searchResultCount;
 	
-	@FindBy(xpath = "//div[@class='cate_head']")private WebElement ShoppingCategoriesBtn; 
-	@FindBy(xpath = "//div[@id='mainMenuContent']") private WebElement ShoppingCategoriesDropdownList;
+	@FindBy(xpath = "//div[@class='cate_head']")private WebElement shoppingCategoriesBtn; 
+	@FindBy(xpath = "//div[@id='mainMenuContent']") private WebElement shoppingCategoriesDropdownList;
 	
-	@FindBy(xpath = "//div[@class='item_title']") private List <WebElement> ProductsNameList;
-	@FindBy(xpath = "//span[@class='offer-price']") private List<WebElement> ProductsPriceList;
+	@FindBy(xpath = "//div[@class='item_title']") private List <WebElement> productsNameList;
+	@FindBy(xpath = "//span[@class='offer-price']") private List<WebElement> productsPriceList;
 	
-	@FindBy(xpath = "//a[@class='bt_compare icon chat quickFancyBox']") private List <WebElement> QuickViewBtn;
+	@FindBy(xpath = "//a[@class='bt_compare icon chat quickFancyBox']") private List <WebElement> quickViewBtn;
 	
-	@FindBy(xpath = "//div[@id='productItem3']") private WebElement HomePageProductDetailsDiv;
+	@FindBy(xpath = "//div[@id='productItem2']") private WebElement homePageProductDetailsDiv;
 	
-	@FindBy(xpath = "//section[@id='quickViewBox']") private WebElement QuickViewProductDetailsPopUp;
+	@FindBy(xpath = "//section[@id='quickViewBox']") private WebElement quickViewProductDetailsPopUp;
 
 	public HomePage(WebDriver driver)
 	{
@@ -37,49 +37,49 @@ public class HomePage extends CommonMethods {
 	
 	public void enterValidProductName() throws EncryptedDocumentException, IOException
 	{
-		SearchInputBox.sendKeys(Parameterization.getStringDataFromSheet("TestData", 0, 0));		
+		searchInputBox.sendKeys(Parameterization.getTestDataFromSheet("TestData", 0, 0));		
 	}
 	
 	public void enterInvalidProductName() throws EncryptedDocumentException, IOException
 	{
-		SearchInputBox.sendKeys(Parameterization.getStringDataFromSheet("TestData", 1, 0));	
+		searchInputBox.sendKeys(Parameterization.getTestDataFromSheet("TestData", 1, 0));	
 	}
 	
 	public void clickOnSearchButton()
 	{
-		SearchButton.click();
+		searchButton.click();
 	}
 	
 	public String getSearchResult()
 	{
-		return SearchResultCount.getText();
+		return searchResultCount.getText();
 	}
 	
 	public void mouseHoverOnShoppingCategories(WebDriver driver)
 	{			
-		MouseActions.mouseHoverAction(driver,ShoppingCategoriesBtn);	
+		MouseActions.mouseHoverAction(driver,shoppingCategoriesBtn);	
 	}
 	
 	public boolean verifyShoppingcategoriesDropdownList()
 	{
-		return ShoppingCategoriesDropdownList.isDisplayed(); 
+		return shoppingCategoriesDropdownList.isDisplayed(); 
 	}
 	
 	public void moveToProduct(WebDriver driver, int index)
 	{
-		MouseActions.mouseHoverAction(driver,ProductsNameList.get(index));
+		MouseActions.mouseHoverAction(driver,productsNameList.get(index));
 	}
 	
 	public String getProductName(int index)
 	{
-		String productName = ProductsNameList.get(index).getText();
+		String productName = productsNameList.get(index).getText();
 		return productName;
 	}
 	
 	public String[] getProductsNameList() {
-		String[] nameList = new String[ProductsNameList.size()];
-		for(int i=0;i<ProductsNameList.size();i++) {
-			nameList[i] =ProductsNameList.get(i).getText();
+		String[] nameList = new String[productsNameList.size()];
+		for(int i=0;i<productsNameList.size();i++) {
+			nameList[i] =productsNameList.get(i).getText();
 		}
 		
 		return nameList;
@@ -88,19 +88,19 @@ public class HomePage extends CommonMethods {
 	
 	public double getProductPrice(int index)
 	{
-		String [] a = ProductsPriceList.get(index).getText().split(" ");
+		String [] a = productsPriceList.get(index).getText().split(" ");
 		return Double.parseDouble(removeCommaFromString(a[0]));	
 	}
 	
 	public boolean clickOnQuickView(int index)
 	{
-		QuickViewBtn.get(index).click();
-		return QuickViewProductDetailsPopUp.isDisplayed();	
+		quickViewBtn.get(index).click();
+		return quickViewProductDetailsPopUp.isDisplayed();	
 	}
 	
 	public void clickOnProductDiv(WebDriver driver)
 	{
-		HomePageProductDetailsDiv.click();
+		homePageProductDetailsDiv.click();
 		launchChildBrowser(driver);	
 	}
 }

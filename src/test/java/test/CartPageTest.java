@@ -21,7 +21,7 @@ public class CartPageTest extends BaseTest{
 	@BeforeMethod
 	public void launchNaptol()
 	{
-		driver = Browser.openBrowser();				
+		driver = Browser.openBrowser("Chrome");				
 	}
 	
 	@Test(priority = 1)
